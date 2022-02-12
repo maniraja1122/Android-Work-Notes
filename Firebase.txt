@@ -1,0 +1,39 @@
+Auth for email ..... Addoncompletelistener ...task.successful
+
+
+Write Data.... setvalue...FirebaseDataBase
+
+
+Read ..... .get().Addonsuccesslistener....it.child.value
+
+
+Multiple Read......ref.AddOnValueChangeListener
+--------------------------------------------------------------------------------------------
+ myref.addValueEventListener(object : ValueEventListener {					
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val title = dataSnapshot.value.toString()
+                    mTitle.setText(title)
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {}
+            })
+
+
+--------------------------------------------------------------------------------------------
+Firebase.auth.sendSignInLinkToEmail(email, actionCodeSettings)
+        .addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Log.d(TAG, "Email sent.")
+            }
+        }
+
+
+
+
+
+
+
+
+for (childSnapshot in dataSnapshot.children) {
+                            donorlist.add(childSnapshot.child("Name").value.toString())
+                        }

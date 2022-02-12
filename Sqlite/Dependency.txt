@@ -1,0 +1,1 @@
+implementation("androidx.sqlite:sqlite-ktx:2.1.0")

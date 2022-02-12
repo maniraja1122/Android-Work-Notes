@@ -1,0 +1,22 @@
+var bottommenu:BottomNavigationView=findViewById(R.id.menuu)
+        bottommenu.setOnItemSelectedListener(NavigationBarView.OnItemSelectedListener {
+            item->
+            when(item.itemId){
+                R.id.main->{
+                    
+                }
+                R.id.option->{
+
+                }
+                R.id.picture->{
+
+                }
+                R.id.camera->{
+
+                }
+                R.id.share->{
+
+                }
+            }
+true
+        })

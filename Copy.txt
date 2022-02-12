@@ -1,0 +1,2 @@
+ val clipboard = ContextCompat.getSystemService(requireActivity()!!.applicationContext,ClipboardManager::class.java)
+            clipboard?.setPrimaryClip(ClipData.newPlainText("Phone No",contactlist[i]))

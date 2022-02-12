@@ -1,0 +1,3 @@
+add in list xml:;
+android:transcriptMode="alwaysScroll"
+   android:stackFromBottom="true"

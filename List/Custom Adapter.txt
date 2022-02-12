@@ -1,0 +1,24 @@
+package example.javatpoint.com.kotlincustomlistview
+
+import android.app.Activity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import com.example.customlist.R
+
+class MyListAdapter(private val context: Activity, private val title:List<String>,private val rollno:List<String>)
+    : ArrayAdapter<String>(context, R.layout.custom_layout, title) {
+
+    override fun getView(position: Int, view: View?, parent: ViewGroup): View {
+        val inflater = context.layoutInflater
+        val rowView = inflater.inflate(R.layout.custom_layout, null, true)
+
+        val nameText = rowView.findViewById(R.id.Name) as TextView
+        val rolltext = rowView.findViewById(R.id.RollNo) as TextView
+
+        nameText.text = title[position]
+        rolltext.text=rollno[position]
+
+        return rowView
+    }
+}

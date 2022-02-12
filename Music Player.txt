@@ -1,0 +1,52 @@
+In Main :: 
+ var music = MediaPlayer.create(
+            this, R.raw.sound)
+Outside Functions :: 
+ // Playing the music
+    fun musicplay(v: View?) {
+        music.start()
+    }
+
+    // Pausing the music
+    fun musicpause(v: View?) {
+        music.pause()
+    }
+
+    // Stoping the music
+    fun musicstop(v: View?) {
+        music.stop()
+        music = MediaPlayer.create(
+            this, R.raw.sound
+        )
+    }
+
+
+
+From Internet:::
+user permissions in manifest ::
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ 
+ private fun playAudio(audioUrl: String) {
+        // initializing media player
+        mediaPlayer = MediaPlayer()
+
+        // below line is use to set the audio stream type for our media player.
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
+        try {
+            // below line is use to set our 
+            // url to our media player.
+            mediaPlayer.setDataSource(audioUrl)
+
+            // below line is use to prepare 
+            // and start our media player.
+            mediaPlayer.prepare()
+            mediaPlayer.start()
+
+            // below line is use to display a toast message.
+            Toast.makeText(this, "Audio started playing..", Toast.LENGTH_SHORT).show()
+        } catch (e: IOException) {
+            // this line of code is use to handle error while playing our audio file.
+            Toast.makeText(this, "Error found is $e", Toast.LENGTH_SHORT).show()
+        }
+    }

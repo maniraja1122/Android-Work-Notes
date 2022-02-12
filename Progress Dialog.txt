@@ -1,0 +1,8 @@
+ val progress = ProgressDialog(context)
+        progress.setTitle("Loading")
+        progress.setMessage("Wait while loading...")
+        progress.setCancelable(false) // disable dismiss by tapping outside of the dialog
+
+        progress.show()
+        // To dismiss the dialog
+        progress.dismiss()

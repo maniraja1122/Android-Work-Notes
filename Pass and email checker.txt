@@ -1,0 +1,33 @@
+ //Email Checker
+    private fun isValidEmailId(email: String): Boolean {
+        return Pattern.compile(
+            "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                    + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                    + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                    + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
+        ).matcher(email).matches()
+    }
+    //Password Checker
+    open fun isValidPassword(password: String?): Boolean {
+        val pattern: Pattern
+        val matcher: Matcher
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$"
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        matcher = pattern.matcher(password)
+        return matcher.matches()
+    }
+
+
+Java :;
+
+public static boolean isValidEmailAddress(String email) {
+    boolean stricterFilter = true; 
+    String stricterFilterString = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    String laxString = ".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    String emailRegex = stricterFilter ? stricterFilterString : laxString;
+    java.util.regex.Pattern p = java.util.regex.Pattern.compile(emailRegex);
+    java.util.regex.Matcher m = p.matcher(email);
+    return m.matches();
+}

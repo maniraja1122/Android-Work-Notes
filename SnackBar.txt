@@ -1,0 +1,2 @@
+val snack = Snackbar.make(View(this@MainActivity),"This is a simple Snackbar",Snackbar.LENGTH_LONG)
+     snack.show()

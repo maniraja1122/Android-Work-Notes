@@ -1,0 +1,4 @@
+ val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main, Fragment2())
+            transaction.addToBackStack(null)
+            transaction.commit()

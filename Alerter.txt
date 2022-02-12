@@ -1,0 +1,14 @@
+source ::  https://github.com/Tapadoo/Alerter
+
+allprojects {
+ repositories {
+    maven { url "https://jitpack.io" }
+ }
+}
+
+implementation 'com.tapadoo.android:alerter:2.0.4'
+
+Alerter.create(this@DemoActivity)
+       .setTitle("Alert Title")
+       .setText("Alert text...")
+       .show()

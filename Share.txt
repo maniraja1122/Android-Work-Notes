@@ -1,0 +1,9 @@
+ share.setOnClickListener(View.OnClickListener {
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "text/plain"
+            val shareBody = "Download the best android app on"
+            val shareSub = "Turbo Xp"
+            sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub)
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+            startActivity(Intent.createChooser(sharingIntent, "Share using"))
+        })

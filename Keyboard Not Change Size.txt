@@ -1,0 +1,3 @@
+android:windowSoftInputMode="adjustNothing"
+
+in manifest<<activity

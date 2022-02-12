@@ -1,0 +1,10 @@
+ //Creating MediaController
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(videoView)
+        //specify the location of media file
+         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.myvideo));
+        //Setting MediaController and URI, then starting the videoView
+        videoView.setMediaController(mediaController)
+        videoView.requestFocus()
+        videoView.
+        videoView.start()

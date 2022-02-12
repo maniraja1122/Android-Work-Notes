@@ -1,0 +1,8 @@
+buildFeatures {
+        viewBinding = true
+    }
+
+
+lateinit var binding : FragmentHomeBinding
+binding= FragmentHomeBinding.inflate(inflater, container, false)
+return binding.root

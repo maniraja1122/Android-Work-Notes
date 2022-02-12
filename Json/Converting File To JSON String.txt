@@ -1,0 +1,34 @@
+fun getAssetJsonData(context: Context): String? {
+        var json: String? = null
+        json = try {
+            val `is` = context.assets.open("myJson.json")//application.assets.open
+            val size = `is`.available()
+            val buffer = ByteArray(size)
+            `is`.read(buffer)
+            `is`.close()
+            String(buffer, Charset.forName("UTF-8"))
+        } catch (ex: IOException) {
+            ex.printStackTrace()
+            return null
+        }
+        return json
+    }
+
+//Second
+private fun loadJSONFromAsset(): String {
+        val json: String?
+        try {
+            val inputStream = assets.open("Synonym.json")
+            val size = inputStream.available()
+            val buffer = ByteArray(size)
+            val charset: Charset = Charsets.UTF_8
+            inputStream.read(buffer)
+            inputStream.close()
+            json = String(buffer, charset)
+        }
+        catch (ex: IOException) {
+            ex.printStackTrace()
+            return ""
+        }
+        return json
+    }

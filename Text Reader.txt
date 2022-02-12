@@ -1,0 +1,15 @@
+ var string: String? = ""
+        val stringBuilder = StringBuilder()
+        val `is`: InputStream = this.resources.openRawResource(R.raw.sample)
+        val reader = BufferedReader(InputStreamReader(`is`))
+        while (true) {
+            try {
+                if (reader.readLine().also { string = it } == null) break
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            stringBuilder.append(string).append("\n")
+        }
+        `is`.close()
+        Toast.makeText(baseContext, stringBuilder.toString(),
+            Toast.LENGTH_LONG).show()

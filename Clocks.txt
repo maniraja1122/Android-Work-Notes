@@ -1,0 +1,42 @@
+<AnalogClock
+android:id="@+id/simpleAnalogClock"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content" />
+
+
+<DigitalClock
+    android:id="@+id/simpleDigitalClock"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+
+<TextClock
+android:id="@+id/simpleTextClock"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content" />
+
+
+
+
+   <AnalogClock
+        android:id="@+id/analogClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <DigitalClock
+        android:id="@+id/digitalClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/analogClock1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="84dp"
+        android:text="DigitalClock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />

@@ -1,0 +1,7 @@
+ var list1:ListView=findViewById(R.id.lst1)
+        var arr= listOf<String>("Abdul manan","Hamza","Ali","Khan","Lala","Comp","Zizu","Peshawar","Wow","Good","Nice","Abdul manan","Hamza","Ali","Khan","Lala","Comp","Zizu","Peshawar","Wow","Last")
+        var adapter=ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,arr)
+        list1.adapter=adapter
+      list1.setOnItemClickListener { adapterView, view, i, l ->
+          Toast.makeText(applicationContext, "Clicked "+"${arr[i]}", Toast.LENGTH_SHORT).show()
+      }

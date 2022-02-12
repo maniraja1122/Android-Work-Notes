@@ -1,0 +1,12 @@
+ fun IsInternetConnected(): Boolean {
+        //Know Internet Connection
+        var connected = false
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+            if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)!!.state == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)!!.state == NetworkInfo.State.CONNECTED
+            ) {
+                //we are connected to a network
+                connected = true
+            } else {connected = false}
+        return connected
+    }
