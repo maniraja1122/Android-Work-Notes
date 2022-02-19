@@ -1,0 +1,15 @@
+Dependency :: 
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+
+//Code Basis Two Co routines
+GlobalScope.launch (Dispatchers.Main){
+                async{
+                    task1()
+                }
+            async {
+                    task2()
+            }
+            }
+
+//task1 and task2 are suspend functions

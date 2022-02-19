@@ -1,0 +1,42 @@
+Permissions:
+Manifest :: <uses-permission android:name="android.permission.INTERNET" />
+Dependency :: 
+// Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+2-
+
+Make Object Class
+
+
+3- 
+
+Api Interface
+-Get Data Function
+
+@GET("/fact")
+    fun GetData():Call<CatFact>
+
+4-
+
+-Get My Data in Main Class
+
+ private fun getmydata() {
+        val retrofitbuilder=Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://catfact.ninja/")
+            .build()
+            .create(ApiInterface::class.java)
+        val mydata=retrofitbuilder.GetData()
+        mydata.enqueue(object : Callback<CatFact?> {
+            override fun onResponse(call: Call<CatFact?>, response: Response<CatFact?>) {
+                val mybody=response.body()
+                Toast.makeText(applicationContext, mybody?.fact.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<CatFact?>, t: Throwable) {
+                Toast.makeText(applicationContext, t.message.toString(), Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
