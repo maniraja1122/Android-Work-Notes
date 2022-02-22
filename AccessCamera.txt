@@ -1,0 +1,24 @@
+private const val REQUEST_CODE = 42
+Main ::
+ binding.takeimg.setOnClickListener() {
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (takePictureIntent.resolveActivity(this.packageManager) != null) {
+                startActivityForResult(takePictureIntent, REQUEST_CODE)
+            } else {
+                Toast.makeText(this, "Unable to open camera", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+
+onActivityResult ::
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val takenImage = data?.extras?.get("data") as Bitmap
+            var imageView:ImageView=findViewById(R.id.imageView)
+            imageView.setImageBitmap(takenImage)
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+
+    }

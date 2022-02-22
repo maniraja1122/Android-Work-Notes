@@ -1,0 +1,9 @@
+        val sharedPreferences:SharedPreferences = getSharedPreferences("MyFile", MODE_PRIVATE)
+//        Writing
+        val editor:SharedPreferences.Editor  = sharedPreferences.edit()
+        editor.putString("name", "Mani");
+        editor.apply();
+        editor.commit()
+//      Reading
+        val name:String? = sharedPreferences.getString("name", "No Name");
+        val id:Int? = sharedPreferences.getInt("idname",0);

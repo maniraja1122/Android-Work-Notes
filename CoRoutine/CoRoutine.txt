@@ -13,3 +13,4 @@ GlobalScope.launch (Dispatchers.Main){
             }
 
 //task1 and task2 are suspend functions
+//Delay Must Hai

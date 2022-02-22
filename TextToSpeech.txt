@@ -1,0 +1,16 @@
+ var mTTS: TextToSpeech? = null
+        mTTS = TextToSpeech(this, OnInitListener { i ->
+            if (i == TextToSpeech.SUCCESS) {
+                val result = mTTS!!.setLanguage(Locale.US)
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "Language Not Supported")
+                }
+            }
+            else
+            {
+                Log.e("TTS", "Initialization Failed")
+            }
+        })
+        //To Speak
+        mTTS!!.speak(myinput.text.toString(), TextToSpeech.QUEUE_FLUSH, null)
