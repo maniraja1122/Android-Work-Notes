@@ -1,0 +1,50 @@
+MAIN ::
+ var notificationManager =
+            getSystemService(
+                Context.NOTIFICATION_SERVICE) as NotificationManager
+        createNotificationChannel(
+            "com.ebookfrenzy.notifydemo.news",
+            "NotifyDemo News",
+            "Example News Channel",notificationManager)
+
+
+Functions :: 
+ private fun createNotificationChannel(id: String, name: String,
+                                          description: String,notificationManager:NotificationManager) {
+        val importance = NotificationManager.IMPORTANCE_LOW
+        val channel = NotificationChannel(id, name, importance)
+        channel.description = description
+        channel.enableLights(true)
+        channel.lightColor = Color.RED
+        channel.enableVibration(true)
+        channel.vibrationPattern =
+            longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
+        notificationManager?.createNotificationChannel(channel)
+    }
+    fun sendNotification(notificationManager: NotificationManager) {
+        val notificationID = 101
+        val GROUP_KEY_NOTIFY = "group_key_notify"
+        val resultIntent = Intent(this, MainActivity2::class.java)
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            resultIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val icon: Icon = Icon.createWithResource(this, android.R.drawable.ic_dialog_info)
+        val action: Notification.Action =
+            Notification.Action.Builder(icon, "Open", pendingIntent).build()
+        val channelID = "com.ebookfrenzy.notifydemo.news"
+        val notification = Notification.Builder(this@MainActivity,
+            channelID)
+            .setContentTitle("Example Notification")
+            .setContentText("This is an example notification.")
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setChannelId(channelID)
+            .setContentIntent(pendingIntent)
+            .setActions(action)
+            .setGroup(GROUP_KEY_NOTIFY)
+            .setGroupSummary(true)
+            .build()
+        notificationManager?.notify(notificationID, notification)
+    }

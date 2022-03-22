@@ -37,3 +37,8 @@ Firebase.auth.sendSignInLinkToEmail(email, actionCodeSettings)
 for (childSnapshot in dataSnapshot.children) {
                             donorlist.add(childSnapshot.child("Name").value.toString())
                         }
+
+
+
+Store Data For Local Storage ::
+db.setPersistenceEnabled(true)
