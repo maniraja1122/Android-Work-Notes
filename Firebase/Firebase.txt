@@ -40,5 +40,10 @@ for (childSnapshot in dataSnapshot.children) {
 
 
 
+getvalue(classname::class.java)
+MapNoTNull
+OrderByChild().(equalto...).addeventlistner
+.push()
+
 Store Data For Local Storage ::
 db.setPersistenceEnabled(true)
